@@ -387,6 +387,7 @@
 
     <!-- Austin Added Style and Script -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 
     <style>
         /* animations */ 
@@ -399,6 +400,11 @@
         }
         body .site-container, body .site-container * {
             transition: all 0.2s linear;
+        }
+        body.gppro-custom {
+            margin: 0;
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
         }
         /* nav */
         .menuBtnBar {
@@ -417,7 +423,7 @@
             padding: 5px 10px;
             border-radius: 5px;
             text-transform: uppercase;
-            font-size: 15px;
+            font-size: 17px;
             width: fit-content;
         }
         .menuBtn:hover {
@@ -427,6 +433,7 @@
         }
         .site-container .nav-container {
             width: 400px;
+            max-width: 100vw;
             height: 100vh;
             position: fixed;
             z-index: 9;
@@ -444,7 +451,7 @@
             text-align: center;
         }
         div.site-container nav.side-nav li {
-            padding: 5px 5%;
+            padding: 3% 5%;
             width: fit-content;
         }
         div.site-container nav.side-nav:hover * {
@@ -469,7 +476,7 @@
             font-size: 25px;
             width: 100%;
             text-align: right;
-            padding-right: 5%;
+            padding: 2% 5%;
         }
         .nav-container .closeBtn:hover {
             cursor: pointer;
@@ -485,6 +492,9 @@
         nav.side-nav {
             padding-top: 15%;
         }
+        nav.side-nav a {
+            text-decoration: none;
+        }
         /* header title */
         header.site-header {
             background-image: url(images/lighthouse-2.jpg);
@@ -497,6 +507,8 @@
         header.site-header .title-area {
             text-transform: uppercase;
             letter-spacing: 5px;
+            font-size: 30px;
+            text-align: center;
             width: fit-content !important;
             backdrop-filter: blur(2px);
             -webkit-backdrop-filter: blur(2px);
@@ -516,7 +528,7 @@
             float: none;
             margin: 0;
             padding: 3% 5%;
-            text-align: right;
+            text-align: left;
         }
         form.search-form[role="search"] input[type="search"] {
             background-color: transparent;
@@ -529,12 +541,15 @@
         form.search-form[role="search"] input[type="submit"] {
             background-color: #fff;
             color: #5f7b91;
-            padding: 5px 10px;
+            padding: 12px;
+            box-shadow: none;
+            border: none;
         }
         form.search-form[role="search"] input[type="submit"]:hover {
             color: #fff;
             background: transparent;
             transform: scale(0.95);
+            cursor: pointer;
         }
         /* homepage content blocks */
         div.site-container .site-header, div.site-container .after-header, div.site-container .site-inner, div.site-container .site-footer {
@@ -558,7 +573,7 @@
             var mainNav = $('ul#menu-primary-primary-navigation-window').html();
             var secondNav = $('ul#menu-secondary').html();
 
-            var navSideBar = `<div class="nav-container hideLeft"><div class="closeBtn" id="closeBtn"><span class="close-txt">close</span>x</div><nav class="side-nav">${mainNav}${secondNav}</nav></div>`;
+            var navSideBar = `<div class="nav-container hideLeft"><div class="closeBtn" id="closeBtn"><span class="close-txt">close</span>x</div><nav class="side-nav"><ul>${mainNav}${secondNav}</ul></nav></div>`;
 
             $('.site-container').prepend(navSideBar);
             $('nav.nav-primary').remove();
